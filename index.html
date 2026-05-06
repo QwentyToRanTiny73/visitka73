@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Денис Емельянов — Энолог-консультант</title>
+<style>
+:root {
+  --accent: #7A8B6E;
+  --accent-dark: #5E6D54;
+  --accent-overlay: rgba(122, 139, 110, 0.12);
+
+  --color-background-tertiary: #F7F5F0;
+  --color-background-primary: #FFFFFF;
+  --color-background-secondary: #F0EDEA;
+  --color-border-tertiary: #D6D3CE;
+  --color-text-primary: #1D1D1F;
+  --color-text-secondary: #6E6E73;
+
+  --font-serif: Georgia, 'Times New Roman', serif;
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--color-text-primary);
+  background: var(--color-background-tertiary);
+}
+
+/* ── NAV ── */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--color-background-primary);
+  border-bottom: 0.5px solid var(--color-border-tertiary);
+}
+
+.nav-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  gap: 2px;
+  padding: 0 16px;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 14px;
+  min-height: 44px;
+  min-width: 44px;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  border-radius: 8px;
+  transition: color 0.2s, background 0.2s;
+  white-space: nowrap;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--accent);
+  background: var(--accent-overlay);
+}
+
+.nav-link svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+/* ── LAYOUT ── */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+section {
+  padding: 56px 0;
+}
+
+.section-label {
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-family: var(--font-serif);
+  font-size: 1.55rem;
+  font-weight: 500;
+  color: var(--color-text-primary);
+  margin-bottom: 32px;
+}
+
+/* ── HERO ── */
+.hero {
+  text-align: center;
+  padding: 72px 0 56px;
+}
+
+.hero-badge {
+  display: inline-block;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--color-text-secondary);
+  background: var(--color-background-secondary);
+  padding: 6px 16px;
+  border-radius: 20px;
+  margin-bottom: 24px;
+}
+
+.hero h1 {
+  font-family: var(--font-serif);
+  font-size: 2.6rem;
+  font-weight: 500;
+  color: var(--color-text-primary);
+  margin-bottom: 8px;
+}
+
+.hero-subtitle {
+  font-size: 15px;
+  color: var(--color-text-secondary);
+  margin-bottom: 24px;
+  letter-spacing: 0.02em;
+}
+
+.hero-lead {
+  max-width: 600px;
+  margin: 0 auto 36px;
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  display: inline-block;
+  padding: 12px 28px;
+  background: var(--accent);
+  color: #F7F5F0;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-primary:hover {
+  background: var(--accent-dark);
+}
+
+.btn-ghost {
+  display: inline-block;
+  padding: 12px 28px;
+  background: transparent;
+  color: var(--accent);
+  border: 1.5px solid var(--accent);
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-ghost:hover {
+  background: var(--accent-overlay);
+}
+
+/* ── CARDS GRID ── */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.card {
+  background: var(--color-background-primary);
+  border: 0.5px solid var(--color-border-tertiary);
+  border-radius: 14px;
+  padding: 24px;
+  transition: border-color 0.2s;
+}
+
+.card:hover {
+  border-color: rgba(122, 139, 110, 0.5);
+}
+
+.card-icon {
+  width: 36px;
+  height: 36px;
+  background: var(--accent-overlay);
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 14px;
+}
+
+.card-icon svg {
+  width: 20px;
+  height: 20px;
+  stroke: var(--accent);
+  fill: none;
+}
+
+.card h3 {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: var(--color-text-primary);
+}
+
+.card p {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  line-height: 1.55;
+}
+
+.card-price {
+  display: block;
+  margin-top: 12px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--accent);
+}
+
+/* ── PRINCIPLES ── */
+.principles {
+  margin-top: 36px;
+  background: var(--color-background-secondary);
+  border-radius: 14px;
+  padding: 28px;
+}
+
+.principles h3 {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.principles p {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  line-height: 1.65;
+}
+
+/* ── TIMELINE ── */
+.timeline {
+  position: relative;
+  padding-left: 28px;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 5px;
+  top: 8px;
+  bottom: 8px;
+  width: 1px;
+  background: var(--color-border-tertiary);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 36px;
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -28px;
+  top: 7px;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid var(--color-background-tertiary);
+}
+
+.timeline-year {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 4px;
+}
+
+.timeline-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: 2px;
+}
+
+.timeline-org {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  font-style: italic;
+  margin-bottom: 6px;
+}
+
+.timeline-desc {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+/* ── WORKS (competency cards) ── */
+.works-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.work-card {
+  background: var(--color-background-secondary);
+  border: 0.5px solid var(--color-border-tertiary);
+  border-radius: 14px;
+  padding: 24px;
+  transition: border-color 0.2s;
+}
+
+.work-card:hover {
+  border-color: rgba(122, 139, 110, 0.5);
+}
+
+.work-card h3 {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: var(--color-text-primary);
+}
+
+.work-card p {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  line-height: 1.55;
+}
+
+/* ── EDUCATION ── */
+.edu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  margin-bottom: 36px;
+}
+
+.edu-card {
+  background: var(--color-background-primary);
+  border: 0.5px solid var(--color-border-tertiary);
+  border-radius: 14px;
+  padding: 24px;
+  transition: border-color 0.2s;
+}
+
+.edu-card:hover {
+  border-color: rgba(122, 139, 110, 0.5);
+}
+
+.edu-year {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 6px;
+}
+
+.edu-degree {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.edu-inst {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  margin-bottom: 2px;
+}
+
+.edu-spec {
+  font-size: 12px;
+  color: var(--color-text-secondary);
+}
+
+.science-block {
+  background: var(--color-background-secondary);
+  border-radius: 14px;
+  padding: 28px;
+}
+
+.science-block h3 {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.science-block p {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  line-height: 1.65;
+}
+
+/* ── CONTACTS ── */
+footer {
+  background: var(--color-background-primary);
+  border-top: 0.5px solid var(--color-border-tertiary);
+  padding: 56px 20px;
+}
+
+.footer-inner {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.contacts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.contact-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: var(--color-background-tertiary);
+  border: 0.5px solid var(--color-border-tertiary);
+  border-radius: 14px;
+  padding: 20px;
+  text-decoration: none;
+  color: var(--color-text-primary);
+  transition: border-color 0.2s;
+}
+
+.contact-card:hover {
+  border-color: rgba(122, 139, 110, 0.5);
+}
+
+.contact-card .contact-icon {
+  width: 36px;
+  height: 36px;
+  background: var(--accent-overlay);
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.contact-card .contact-icon svg {
+  width: 18px;
+  height: 18px;
+  stroke: var(--accent);
+  fill: none;
+}
+
+.contact-label {
+  font-size: 11px;
+  color: var(--color-text-secondary);
+  margin-bottom: 2px;
+}
+
+.contact-value {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-text-primary);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 640px) {
+  .nav-inner {
+    gap: 0;
+    justify-content: space-between;
+    padding: 0 8px;
+  }
+
+  .nav-link {
+    flex-direction: column;
+    gap: 2px;
+    padding: 10px 8px;
+    font-size: 10px;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero {
+    padding: 48px 0 40px;
+  }
+
+  section {
+    padding: 40px 0;
+  }
+
+  .cards-grid,
+  .works-grid,
+  .edu-grid,
+  .contacts-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════ NAV ══════════ -->
+<nav>
+  <div class="nav-inner">
+    <a href="#home" class="nav-link active">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="10" cy="8" r="2.5"/><circle cx="14" cy="11" r="2.5"/><circle cx="10" cy="14" r="2.5"/><circle cx="7" cy="11" r="2.5"/>
+        <path d="M14 5c1-2 3-3 4-2s0 3-1 5"/>
+      </svg>
+      <span>Главная</span>
+    </a>
+    <a href="#services" class="nav-link">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 2c-1 0-2 1-2 1v3h4V3s-1-1-2-1z"/>
+        <path d="M10 6H14"/>
+        <path d="M9 6c-1 0-1.5.5-1.5 1.5v12c0 1.5 1 2.5 2.5 2.5h4c1.5 0 2.5-1 2.5-2.5v-12C16.5 6.5 16 6 15 6"/>
+        <path d="M9 14h6"/>
+      </svg>
+      <span>Услуги</span>
+    </a>
+    <a href="#resume" class="nav-link">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M6 3h9l4 4v13a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/>
+        <path d="M15 3v4h4"/>
+        <line x1="8" y1="10" x2="14" y2="10"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="16" x2="12" y2="16"/>
+      </svg>
+      <span>Резюме</span>
+    </a>
+    <a href="#works" class="nav-link">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 3c-1 3-4 5-7 6 1 4 3 8 7 12 4-4 6-8 7-12-3-1-6-3-7-6z"/>
+        <path d="M12 3v18"/>
+        <path d="M5 9c3 0 5 2 7 4"/>
+        <path d="M19 9c-3 0-5 2-7 4"/>
+        <path d="M17 6c-1 2-2 3-3 4"/>
+      </svg>
+      <span>Виды работ</span>
+    </a>
+    <a href="#education" class="nav-link">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 4L2 9l10 5 10-5-10-5z"/>
+        <path d="M6 11.5v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/>
+        <line x1="22" y1="9" x2="22" y2="16"/>
+        <path d="M22 16c0 0-0.5 1.5-1.5 1.5"/>
+      </svg>
+      <span>Образование</span>
+    </a>
+    <a href="#contacts" class="nav-link">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M4 8l8 5 8-5"/>
+        <rect x="3" y="6" width="18" height="13" rx="2"/>
+        <path d="M3 6l4-2h10l4 2"/>
+      </svg>
+      <span>Контакты</span>
+    </a>
+  </div>
+</nav>
+
+<main>
+
+  <!-- ══════════ HOME ══════════ -->
+  <section id="home" class="hero">
+    <div class="hero-badge">Ялта &middot; Республика Крым &middot; Лаборатория Магарач</div>
+    <h1>Денис Емельянов</h1>
+    <p class="hero-subtitle">Энолог-консультант &middot; Винодел &middot; Виноградарь</p>
+    <p class="hero-lead">Сопровождаю малые хозяйства Крыма на всех этапах — от диагностики виноградника до стабилизации и розлива. Лаборатория &laquo;Магарача&raquo; + собственная производственная площадка в Краснокаменке.</p>
+    <div class="hero-buttons">
+      <a href="#services" class="btn-primary">Услуги и цены</a>
+      <a href="#contacts" class="btn-ghost">Связаться</a>
+    </div>
+  </section>
+
+  <!-- ══════════ SERVICES ══════════ -->
+  <section id="services">
+    <p class="section-label">Услуги и цены</p>
+    <h2 class="section-title">Чем могу помочь</h2>
+
+    <div class="cards-grid">
+
+      <div class="card">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 10h18M3 10v8a2 2 0 002 2h14a2 2 0 002-2v-8M3 10l2-6h14l2 6"/>
+            <circle cx="12" cy="15" r="2"/>
+          </svg>
+        </div>
+        <h3>Аудит хозяйства</h3>
+        <p>Выезд на 1–2 дня. Осмотр виноградника, оценка состояния винодельни, анализ оборудования и технологических процессов. Письменный отчёт с точками роста.</p>
+        <span class="card-price">от 25 000 &#8381;</span>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="9"/>
+            <path d="M12 7v5l3 3"/>
+          </svg>
+        </div>
+        <h3>Сопровождение цикла винификации</h3>
+        <p>От сбора винограда до завершения ферментации. Технологические карты, лабораторный контроль, корректировка процессов в реальном времени.</p>
+        <span class="card-price">от 80 000 &#8381; / сезон</span>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 3h6v4H9z"/>
+            <path d="M6 7h12v13a1 1 0 01-1 1H7a1 1 0 01-1-1V7z"/>
+            <path d="M10 12h4"/><path d="M12 10v4"/>
+          </svg>
+        </div>
+        <h3>Лабораторное сопровождение</h3>
+        <p>Сахар, кислотность, SO&#x2082;, микробиология. Интерпретация результатов и технологические решения на базе лаборатории &laquo;Магарач&raquo;.</p>
+        <span class="card-price">от 5 000 &#8381; / пакет</span>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+            <path d="M2 17l10 5 10-5"/>
+            <path d="M2 12l10 5 10-5"/>
+          </svg>
+        </div>
+        <h3>Разработка стиля вина</h3>
+        <p>Целевой профиль, технологическая карта, подбор сортов и режимов. От идеи до первого тиража.</p>
+        <span class="card-price">от 50 000 &#8381; / проект</span>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2c-1 0-2 1-2 1v3h4V3s-1-1-2-1z"/>
+            <path d="M10 6H14"/>
+            <path d="M9 6c-1 0-1.5.5-1.5 1.5v12c0 1.5 1 2.5 2.5 2.5h4c1.5 0 2.5-1 2.5-2.5v-12C16.5 6.5 16 6 15 6"/>
+            <path d="M10 14l2 2 3-4"/>
+          </svg>
+        </div>
+        <h3>Подготовка к розливу</h3>
+        <p>Стабилизация, фильтрация, оклейка, контроль перед розливом. Сопровождение партии до бутылки.</p>
+        <span class="card-price">от 20 000 &#8381; / партия</span>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/>
+            <line x1="12" y1="9" x2="12" y2="13"/>
+            <line x1="12" y1="17" x2="12.01" y2="17"/>
+          </svg>
+        </div>
+        <h3>Решение конкретных проблем</h3>
+        <p>Окисление, нестабильность, посторонние тона, дефекты розлива. Диагностика причины и план действий.</p>
+        <span class="card-price">от 15 000 &#8381; / выезд</span>
+      </div>
+
+    </div>
+
+    <div class="principles">
+      <h3>Принципы работы</h3>
+      <p>Не беру в работу больше клиентов, чем могу качественно сопровождать. Работаю только с хозяйствами от 0,5 до 20 га, готовыми к рекомендациям. Цены ориентировочные — итоговая стоимость обсуждается после первичной диагностики задачи.</p>
+    </div>
+  </section>
+
+  <!-- ══════════ RESUME ══════════ -->
+  <section id="resume">
+    <p class="section-label">Профессиональный опыт</p>
+    <h2 class="section-title">Резюме</h2>
+
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <p class="timeline-year">с 2024</p>
+        <p class="timeline-title">Младший научный сотрудник</p>
+        <p class="timeline-org">ФГБУН &laquo;ВНИИВиВ Магарач&raquo;, Ялта</p>
+        <p class="timeline-desc">Лаборатория биохимии вина. Анализы виноматериалов и готовых вин. Исследования по защите вин от окисления и применению SO&#x2082;. Руководитель — Е.&thinsp;А.&thinsp;Сластья. Две публикации РИНЦ.</p>
+      </div>
+
+      <div class="timeline-item">
+        <p class="timeline-year">с 2022</p>
+        <p class="timeline-title">Винодел и виноградарь</p>
+        <p class="timeline-org">Хозяйство &laquo;Красный камень&raquo;, Краснокаменка</p>
+        <p class="timeline-desc">Виноградник 0,7 га, полный цикл: уход, винификация, выдержка, подготовка к розливу. Пять авторских вин: Каберне-Сира, Саперави, Пино Нуар, Мускат, Кокур.</p>
+      </div>
+
+      <div class="timeline-item">
+        <p class="timeline-year">с 2022</p>
+        <p class="timeline-title">Управляющий туристическим направлением</p>
+        <p class="timeline-org">Эко-база &laquo;Лесная Обитель&raquo;, Краснокаменка</p>
+        <p class="timeline-desc">Развитие винного и гастрономического направления. Программа дегустаций и экскурсий для гостей.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════ WORKS ══════════ -->
+  <section id="works">
+    <p class="section-label">Компетенции</p>
+    <h2 class="section-title">Виды работ</h2>
+
+    <div class="works-grid">
+
+      <div class="work-card">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22c-4-4-8-8-8-13a8 8 0 0116 0c0 5-4 9-8 13z"/>
+            <circle cx="12" cy="9" r="2"/>
+          </svg>
+        </div>
+        <h3>Виноградарство</h3>
+        <p>Закладка и уход за виноградником, агротехника, защита растений, оценка состояния насаждений.</p>
+      </div>
+
+      <div class="work-card">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M8 2h8l2 5H6l2-5z"/>
+            <path d="M6 7v12a3 3 0 003 3h6a3 3 0 003-3V7"/>
+            <path d="M10 11v4"/><path d="M14 11v4"/>
+          </svg>
+        </div>
+        <h3>Винификация</h3>
+        <p>Полный цикл: красные, розовые, белые вина. Технологические карты, корректировка процессов.</p>
+      </div>
+
+      <div class="work-card">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 3h6v6l-2 8H11L9 9V3z"/>
+            <path d="M9 3H7"/><path d="M15 3h2"/>
+            <circle cx="12" cy="19" r="2"/>
+            <path d="M12 17v-2"/>
+          </svg>
+        </div>
+        <h3>Биохимия вина</h3>
+        <p>Контроль ферментации, работа с SO&#x2082;, защита от окисления, стабилизация.</p>
+      </div>
+
+      <div class="work-card">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M10 2v6l-3 8h10l-3-8V2"/>
+            <path d="M8 2h8"/>
+            <path d="M7 16v4a2 2 0 002 2h6a2 2 0 002-2v-4"/>
+            <path d="M12 8c1 1 3 3 3 4"/>
+          </svg>
+        </div>
+        <h3>Лабораторные анализы</h3>
+        <p>Сахар, кислотность, летучие кислоты, SO&#x2082;, микробиология. Доступ к лаборатории &laquo;Магарач&raquo;.</p>
+      </div>
+
+      <div class="work-card">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="9"/>
+            <path d="M8 12c1-2 2-3 4-3s3 1 4 3"/>
+            <path d="M8 16c1-1 2-2 4-2s3 1 4 2"/>
+            <circle cx="9" cy="9" r="1"/><circle cx="15" cy="9" r="1"/>
+          </svg>
+        </div>
+        <h3>Дегустационная оценка</h3>
+        <p>Органолептический анализ, выявление дефектов, подбор стилистики.</p>
+      </div>
+
+      <div class="work-card">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2c-1 0-2 1-2 1v3h4V3s-1-1-2-1z"/>
+            <path d="M9 6c-1 0-1.5.5-1.5 1.5v12c0 1.5 1 2.5 2.5 2.5h4c1.5 0 2.5-1 2.5-2.5v-12C16.5 6.5 16 6 15 6"/>
+            <path d="M10 14l2 2 3-4"/>
+          </svg>
+        </div>
+        <h3>Подготовка к розливу</h3>
+        <p>Фильтрация, оклейка, стабилизация, документация.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════ EDUCATION ══════════ -->
+  <section id="education">
+    <p class="section-label">Образование</p>
+    <h2 class="section-title">Академическая база</h2>
+
+    <div class="edu-grid">
+
+      <div class="edu-card">
+        <p class="edu-year">2022–2024</p>
+        <p class="edu-degree">Магистр</p>
+        <p class="edu-inst">Севастопольский государственный университет</p>
+        <p class="edu-spec">Садоводство</p>
+      </div>
+
+      <div class="edu-card">
+        <p class="edu-year">2018–2022</p>
+        <p class="edu-degree">Бакалавр</p>
+        <p class="edu-inst">Севастопольский государственный университет</p>
+        <p class="edu-spec">Технология продукции и организация общественного питания</p>
+      </div>
+
+      <div class="edu-card">
+        <p class="edu-year">2023</p>
+        <p class="edu-degree">Лаборант химического анализа</p>
+        <p class="edu-inst">СевГУ</p>
+        <p class="edu-spec">Профессиональное обучение</p>
+      </div>
+
+      <div class="edu-card">
+        <p class="edu-year">2022–2023</p>
+        <p class="edu-degree">Специалист по аддитивным технологиям</p>
+        <p class="edu-inst">СевГУ</p>
+        <p class="edu-spec">Профессиональная переподготовка</p>
+      </div>
+
+    </div>
+
+    <div class="science-block">
+      <h3>Научная работа</h3>
+      <p>Две публикации в системе РИНЦ. Текущая работа — статья по применению диоксида серы и защите вин от окисления. Научный подход — часть консалтинговой методики: каждое технологическое решение имеет под собой проверяемую базу.</p>
+    </div>
+  </section>
+
+</main>
+
+<!-- ══════════ CONTACTS ══════════ -->
+<footer id="contacts">
+  <div class="footer-inner">
+    <p class="section-label">Контакты</p>
+    <h2 class="section-title">Связаться</h2>
+
+    <div class="contacts-grid">
+
+      <a href="tel:+79785905650" class="contact-card">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
+          </svg>
+        </div>
+        <div>
+          <p class="contact-label">Телефон</p>
+          <p class="contact-value">+7 978 590 56 50</p>
+        </div>
+      </a>
+
+      <a href="mailto:sherllocked221b@yandex.ru" class="contact-card">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="5" width="18" height="14" rx="2"/>
+            <path d="M3 7l9 6 9-6"/>
+          </svg>
+        </div>
+        <div>
+          <p class="contact-label">Email</p>
+          <p class="contact-value">sherllocked221b@yandex.ru</p>
+        </div>
+      </a>
+
+      <a href="https://t.me/CaDi1440" class="contact-card" target="_blank" rel="noopener">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21.2 4.6L2.5 11.5c-.7.3-.7.7 0 .9l4.8 1.5 1.8 5.8c.2.6.5.7.9.4l2.6-2.1 5.1 3.7c.6.4 1 .2 1.2-.5L22.6 5.7c.2-.8-.2-1.3-1.4-.9z"/>
+            <path d="M9.3 13.9l8.5-7.3"/>
+          </svg>
+        </div>
+        <div>
+          <p class="contact-label">Telegram</p>
+          <p class="contact-value">@CaDi1440</p>
+        </div>
+      </a>
+
+      <div class="contact-card">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+            <circle cx="12" cy="10" r="3"/>
+          </svg>
+        </div>
+        <div>
+          <p class="contact-label">Локация</p>
+          <p class="contact-value">Ялта. Выезд по Крыму и югу России.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</footer>
+
+<script>
+(function() {
+  var links = document.querySelectorAll('.nav-link');
+  var sections = [];
+
+  links.forEach(function(link) {
+    var id = link.getAttribute('href').slice(1);
+    var el = document.getElementById(id);
+    if (el) sections.push({ id: id, el: el, link: link });
+  });
+
+  function updateActive() {
+    var scrollY = window.scrollY + 100;
+    var current = sections[0];
+
+    for (var i = sections.length - 1; i >= 0; i--) {
+      if (sections[i].el.offsetTop <= scrollY) {
+        current = sections[i];
+        break;
+      }
+    }
+
+    links.forEach(function(l) { l.classList.remove('active'); });
+    if (current) current.link.classList.add('active');
+  }
+
+  var ticking = false;
+  window.addEventListener('scroll', function() {
+    if (!ticking) {
+      window.requestAnimationFrame(function() {
+        updateActive();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
+
+  updateActive();
+})();
+</script>
+
+</body>
+</html>
