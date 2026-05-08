@@ -160,20 +160,23 @@ section {
 }
 
 .section-label {
-  font-size: 10px;
-  letter-spacing: 0.12em;
+  font-family: var(--font-sans);
+  font-size: var(--fs-eyebrow);
+  letter-spacing: var(--track-eyebrow);
   text-transform: uppercase;
-  color: var(--accent);
-  font-weight: 600;
-  margin-bottom: 12px;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin-bottom: var(--space-2);
 }
 
 .section-title {
   font-family: var(--font-serif);
-  font-size: 1.55rem;
+  font-size: var(--fs-xl);
   font-weight: 500;
-  color: var(--color-text-primary);
-  margin-bottom: 32px;
+  line-height: var(--leading-tight);
+  letter-spacing: var(--track-tight);
+  color: var(--text);
+  margin-bottom: var(--space-5);
 }
 
 /* ── HERO ── */
@@ -251,83 +254,139 @@ section {
   color: var(--text-on-dark);
 }
 
-/* ── CARDS GRID ── */
-.cards-grid {
+/* ── TRUST STRIP ── */
+.trust {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-5);
+  padding: var(--space-5) 0 var(--space-6);
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
 }
 
-.card {
-  background: var(--color-background-primary);
-  border: 0.5px solid var(--color-border-tertiary);
-  border-radius: 14px;
-  padding: 24px;
-  transition: border-color 0.2s;
-}
-
-.card:hover {
-  border-color: var(--rule-strong);
-}
-
-.card-icon {
-  width: 36px;
-  height: 36px;
-  background: var(--accent-overlay);
-  border-radius: 9px;
+.trust-item {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 14px;
+  flex-direction: column;
+  gap: var(--space-1);
 }
 
-.card-icon svg {
-  width: 20px;
-  height: 20px;
-  stroke: var(--accent);
-  fill: none;
-}
-
-.card h3 {
-  font-size: 14px;
-  font-weight: 600;
-  margin-bottom: 6px;
-  color: var(--color-text-primary);
-}
-
-.card p {
-  font-size: 13px;
-  color: var(--color-text-secondary);
-  line-height: 1.55;
-}
-
-.card-price {
-  display: block;
-  margin-top: 12px;
-  font-size: 12px;
-  font-weight: 500;
-  color: var(--accent);
-}
-
-/* ── PRINCIPLES ── */
-.principles {
-  margin-top: 36px;
-  background: var(--color-background-secondary);
-  border-radius: 14px;
-  padding: 28px;
-}
-
-.principles h3 {
+.trust-name {
   font-family: var(--font-serif);
-  font-size: 1.1rem;
+  font-size: var(--fs-lg);
   font-weight: 500;
-  margin-bottom: 10px;
+  line-height: var(--leading-snug);
+  letter-spacing: var(--track-tight);
+  color: var(--text);
 }
 
-.principles p {
-  font-size: 13px;
-  color: var(--color-text-secondary);
-  line-height: 1.65;
+.trust-role {
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.005em;
+}
+
+/* ── SERVICES (typographic list) ── */
+.services-list {
+  display: flex;
+  flex-direction: column;
+  margin-top: var(--space-5);
+}
+
+.service {
+  display: grid;
+  grid-template-columns: 88px 1fr auto;
+  column-gap: var(--space-4);
+  align-items: start;
+  padding: var(--space-5) 0;
+  border-top: 1px solid var(--rule);
+  transition: background 0.18s ease;
+}
+
+.service:last-child {
+  border-bottom: 1px solid var(--rule);
+}
+
+.service-num {
+  font-family: var(--font-serif);
+  font-size: clamp(2.4rem, 4vw + 0.5rem, 3rem);
+  font-weight: 400;
+  line-height: 0.95;
+  color: var(--text-faint);
+  letter-spacing: var(--track-tight);
+  font-variant-numeric: lining-nums;
+}
+
+.service-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  min-width: 0;
+}
+
+.service-title {
+  font-family: var(--font-serif);
+  font-size: var(--fs-lg);
+  font-weight: 500;
+  line-height: var(--leading-snug);
+  letter-spacing: var(--track-tight);
+  color: var(--text);
+  text-decoration: none;
+  text-decoration-color: var(--rule-strong);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+  transition: text-decoration-color 0.18s ease;
+}
+
+.service-desc {
+  font-size: var(--fs-sm);
+  line-height: var(--leading-base);
+  color: var(--text-muted);
+  max-width: 56ch;
+}
+
+.service-price {
+  font-family: var(--font-sans);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  color: var(--bordeaux);
+  white-space: nowrap;
+  align-self: start;
+  padding-top: 6px;
+  transition: color 0.18s ease;
+}
+
+.service:hover .service-title {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+}
+
+.service:hover .service-price {
+  color: var(--bordeaux-strong);
+}
+
+/* ── PRINCIPLES (italic pull-quote, no box) ── */
+.principles {
+  margin-top: var(--space-7);
+  padding: var(--space-5) 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+
+.principles-quote {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: var(--fs-lg);
+  line-height: var(--leading-snug);
+  color: var(--text);
+  max-width: 56ch;
+}
+
+.principles-note {
+  margin-top: var(--space-3);
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+  max-width: 60ch;
 }
 
 /* ── TIMELINE ── */
@@ -583,12 +642,32 @@ footer {
     padding: 40px 0;
   }
 
-  .cards-grid,
   .works-grid,
   .edu-grid,
   .contacts-grid {
     grid-template-columns: 1fr;
   }
+
+  /* Trust strip stacks vertically on mobile */
+  .trust {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+    padding: var(--space-4) 0 var(--space-5);
+  }
+
+  /* Services: number + price share top row, body underneath */
+  .service {
+    grid-template-columns: auto 1fr;
+    grid-template-areas:
+      "num   price"
+      "body  body";
+    column-gap: var(--space-3);
+    row-gap: var(--space-2);
+    padding: var(--space-4) 0;
+  }
+  .service-num   { grid-area: num; font-size: var(--fs-xl); padding-top: 4px; }
+  .service-price { grid-area: price; justify-self: end; align-self: center; padding-top: 0; }
+  .service-body  { grid-area: body; }
 }
 </style>
 </head>
@@ -663,98 +742,89 @@ footer {
       <a href="#contacts" class="btn-ghost">Связаться</a>
     </div>
   </section>
-  <!-- ══════════ TRUST STRIP (planned in step 4) ══════════ -->
+  <!-- ══════════ TRUST STRIP ══════════ -->
+  <section class="trust" aria-label="Профессиональная база">
+    <div class="trust-item">
+      <p class="trust-name">ВНИИВиВ &laquo;Магарач&raquo;</p>
+      <p class="trust-role">Лаборатория биохимии вина &middot; Ялта</p>
+    </div>
+    <div class="trust-item">
+      <p class="trust-name">&laquo;Красный камень&raquo;</p>
+      <p class="trust-role">Собственное хозяйство &middot; Краснокаменка</p>
+    </div>
+    <div class="trust-item">
+      <p class="trust-name">&laquo;Лесная Обитель&raquo;</p>
+      <p class="trust-role">Винное и гастрономическое направление</p>
+    </div>
+  </section>
 
   <!-- ══════════ SERVICES ══════════ -->
   <section id="services">
     <p class="section-label">Услуги и цены</p>
     <h2 class="section-title">Чем могу помочь</h2>
 
-    <div class="cards-grid">
+    <div class="services-list">
 
-      <div class="card">
-        <div class="card-icon">
-          <svg viewBox="0 0 24 24" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M3 10h18M3 10v8a2 2 0 002 2h14a2 2 0 002-2v-8M3 10l2-6h14l2 6"/>
-            <circle cx="12" cy="15" r="2"/>
-          </svg>
+      <article class="service">
+        <span class="service-num" aria-hidden="true">01</span>
+        <div class="service-body">
+          <h3 class="service-title">Аудит хозяйства</h3>
+          <p class="service-desc">Выезд на 1–2 дня. Осмотр виноградника, оценка состояния винодельни, анализ оборудования и технологических процессов. Письменный отчёт с точками роста.</p>
         </div>
-        <h3>Аудит хозяйства</h3>
-        <p>Выезд на 1–2 дня. Осмотр виноградника, оценка состояния винодельни, анализ оборудования и технологических процессов. Письменный отчёт с точками роста.</p>
-        <span class="card-price">от 25 000 &#8381;</span>
-      </div>
+        <span class="service-price">от 25 000&nbsp;&#8381;</span>
+      </article>
 
-      <div class="card">
-        <div class="card-icon">
-          <svg viewBox="0 0 24 24" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="9"/>
-            <path d="M12 7v5l3 3"/>
-          </svg>
+      <article class="service">
+        <span class="service-num" aria-hidden="true">02</span>
+        <div class="service-body">
+          <h3 class="service-title">Сопровождение цикла винификации</h3>
+          <p class="service-desc">От сбора винограда до завершения ферментации. Технологические карты, лабораторный контроль, корректировка процессов в реальном времени.</p>
         </div>
-        <h3>Сопровождение цикла винификации</h3>
-        <p>От сбора винограда до завершения ферментации. Технологические карты, лабораторный контроль, корректировка процессов в реальном времени.</p>
-        <span class="card-price">от 80 000 &#8381; / сезон</span>
-      </div>
+        <span class="service-price">от 80 000&nbsp;&#8381;&thinsp;/&thinsp;сезон</span>
+      </article>
 
-      <div class="card">
-        <div class="card-icon">
-          <svg viewBox="0 0 24 24" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M9 3h6v4H9z"/>
-            <path d="M6 7h12v13a1 1 0 01-1 1H7a1 1 0 01-1-1V7z"/>
-            <path d="M10 12h4"/><path d="M12 10v4"/>
-          </svg>
+      <article class="service">
+        <span class="service-num" aria-hidden="true">03</span>
+        <div class="service-body">
+          <h3 class="service-title">Лабораторное сопровождение</h3>
+          <p class="service-desc">Сахар, кислотность, SO&#x2082;, микробиология. Интерпретация результатов и технологические решения на базе лаборатории &laquo;Магарач&raquo;.</p>
         </div>
-        <h3>Лабораторное сопровождение</h3>
-        <p>Сахар, кислотность, SO&#x2082;, микробиология. Интерпретация результатов и технологические решения на базе лаборатории &laquo;Магарач&raquo;.</p>
-        <span class="card-price">от 5 000 &#8381; / пакет</span>
-      </div>
+        <span class="service-price">от 5 000&nbsp;&#8381;&thinsp;/&thinsp;пакет</span>
+      </article>
 
-      <div class="card">
-        <div class="card-icon">
-          <svg viewBox="0 0 24 24" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-            <path d="M2 17l10 5 10-5"/>
-            <path d="M2 12l10 5 10-5"/>
-          </svg>
+      <article class="service">
+        <span class="service-num" aria-hidden="true">04</span>
+        <div class="service-body">
+          <h3 class="service-title">Разработка стиля вина</h3>
+          <p class="service-desc">Целевой профиль, технологическая карта, подбор сортов и режимов. От идеи до первого тиража.</p>
         </div>
-        <h3>Разработка стиля вина</h3>
-        <p>Целевой профиль, технологическая карта, подбор сортов и режимов. От идеи до первого тиража.</p>
-        <span class="card-price">от 50 000 &#8381; / проект</span>
-      </div>
+        <span class="service-price">от 50 000&nbsp;&#8381;&thinsp;/&thinsp;проект</span>
+      </article>
 
-      <div class="card">
-        <div class="card-icon">
-          <svg viewBox="0 0 24 24" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 2c-1 0-2 1-2 1v3h4V3s-1-1-2-1z"/>
-            <path d="M10 6H14"/>
-            <path d="M9 6c-1 0-1.5.5-1.5 1.5v12c0 1.5 1 2.5 2.5 2.5h4c1.5 0 2.5-1 2.5-2.5v-12C16.5 6.5 16 6 15 6"/>
-            <path d="M10 14l2 2 3-4"/>
-          </svg>
+      <article class="service">
+        <span class="service-num" aria-hidden="true">05</span>
+        <div class="service-body">
+          <h3 class="service-title">Подготовка к розливу</h3>
+          <p class="service-desc">Стабилизация, фильтрация, оклейка, контроль перед розливом. Сопровождение партии до бутылки.</p>
         </div>
-        <h3>Подготовка к розливу</h3>
-        <p>Стабилизация, фильтрация, оклейка, контроль перед розливом. Сопровождение партии до бутылки.</p>
-        <span class="card-price">от 20 000 &#8381; / партия</span>
-      </div>
+        <span class="service-price">от 20 000&nbsp;&#8381;&thinsp;/&thinsp;партия</span>
+      </article>
 
-      <div class="card">
-        <div class="card-icon">
-          <svg viewBox="0 0 24 24" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/>
-            <line x1="12" y1="9" x2="12" y2="13"/>
-            <line x1="12" y1="17" x2="12.01" y2="17"/>
-          </svg>
+      <article class="service">
+        <span class="service-num" aria-hidden="true">06</span>
+        <div class="service-body">
+          <h3 class="service-title">Решение конкретных проблем</h3>
+          <p class="service-desc">Окисление, нестабильность, посторонние тона, дефекты розлива. Диагностика причины и план действий.</p>
         </div>
-        <h3>Решение конкретных проблем</h3>
-        <p>Окисление, нестабильность, посторонние тона, дефекты розлива. Диагностика причины и план действий.</p>
-        <span class="card-price">от 15 000 &#8381; / выезд</span>
-      </div>
+        <span class="service-price">от 15 000&nbsp;&#8381;&thinsp;/&thinsp;выезд</span>
+      </article>
 
     </div>
 
-    <div class="principles">
-      <h3>Принципы работы</h3>
-      <p>Не беру в работу больше клиентов, чем могу качественно сопровождать. Работаю только с хозяйствами от 0,5 до 20 га, готовыми к рекомендациям. Цены ориентировочные — итоговая стоимость обсуждается после первичной диагностики задачи.</p>
-    </div>
+    <aside class="principles">
+      <p class="principles-quote">Не беру в работу больше клиентов, чем могу качественно сопровождать. Работаю только с хозяйствами от 0,5 до 20 га, готовыми к рекомендациям.</p>
+      <p class="principles-note">Цены ориентировочные. Итоговая стоимость обсуждается после первичной диагностики задачи.</p>
+    </aside>
   </section>
 
   <!-- ══════════ RESUME ══════════ -->
