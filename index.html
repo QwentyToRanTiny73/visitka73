@@ -114,6 +114,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -122,9 +123,14 @@ body {
   line-height: var(--leading-base);
   color: var(--text);
   background: var(--bg);
+  overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+}
+
+a {
+  overflow-wrap: anywhere;
 }
 
 /* ── NAV ── */
@@ -665,9 +671,22 @@ a.contact-value:hover {
 
 /* ── RESPONSIVE ── */
 @media (max-width: 640px) {
+  /* Nav becomes a horizontally-scrollable strip on narrow viewports.
+     Keeps all 6 items + their 44×44 touch targets without hiding labels. */
+  nav {
+    overflow-x: auto;
+    overflow-y: hidden;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  nav::-webkit-scrollbar {
+    display: none;
+  }
   .nav-inner {
+    justify-content: flex-start;
     gap: 0;
-    justify-content: space-between;
+    width: max-content;
+    min-width: 100%;
     padding: 0 8px;
   }
 
@@ -676,6 +695,7 @@ a.contact-value:hover {
     gap: 2px;
     padding: 10px 8px;
     font-size: 10px;
+    flex-shrink: 0;
   }
 
   .hero {
